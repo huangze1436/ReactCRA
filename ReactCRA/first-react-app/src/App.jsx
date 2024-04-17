@@ -15,6 +15,7 @@ import {Routes,Link,Route} from "react-router-dom"
 import Usecallback from "./pages/useCallback"
 import PageTop from "./component/PageTop"
 import PageBottom from "./component/PageBottom"
+import ReduxUseByHook from "./pages/reduxUseByHook"
 
 class App extends React.Component {
     constructor() {
@@ -61,6 +62,9 @@ class App extends React.Component {
                 <div className={this.state.pageName==='useCallback'?'active part':'part'}>
                     <Link to="/useCallback" onClick={()=>{this.changePageName('useCallback')}} >useCallback 案例</Link>
                 </div>
+                <div className={this.state.pageName==='ReduxUseByHook'?'active part':'part'}>
+                    <Link to="/ReduxUseByHook" onClick={()=>{this.changePageName('ReduxUseByHook')}} >redux hook 案例</Link>
+                </div>
             </div> 
             <div className="main">
                 <Routes>
@@ -74,6 +78,7 @@ class App extends React.Component {
                     <Route path="/redux" element={<Redux/>}/>
                     <Route path="/Effect" element={<Effect/>}/>
                     <Route path="/useCallback" element={<Usecallback/>}/>
+                    <Route path="/ReduxUseByHook" element={<ReduxUseByHook/>}/>
                 </Routes>
             </div>
             <PageBottom/>
