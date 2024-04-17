@@ -6,7 +6,7 @@ export default class Addless extends react.Component {
     constructor (props) {
         super(props)
         this.state = {
-            name:'sasdasdsad',
+            name:'!!!!!!',
             message:100,
 
         }
