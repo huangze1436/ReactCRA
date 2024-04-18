@@ -1,21 +1,25 @@
 import {React} from 'react'
 import {Button, message} from 'antd'
 import {useUserToken} from '../hooks'
+import { useSelector, useDispatch } from 'react-redux'
+import {changeUsername} from '../store_hook/modulus/username'
 
 function PageBottom () {
-    const [userToken, userTokenB] = useUserToken()
-
+    const {username} = useSelector((state)=>{
+        return {
+            username: state.username.username
+        }
+    })
+    const dispatch = useDispatch();
 
     function exit () {
-        console.log(userToken);
-        console.log(userTokenB);
-        if (!!userTokenB.AnimalsContext._currentValue.name === false) {
+        if (!username) {
             message.warning('还没登录呢');
         } else {
-            userTokenB.AnimalsContext._currentValue = {}
-
+            dispatch(changeUsername('未登录'))
         }
     }
+
     return (
         <div className="bottom">
             <div>
